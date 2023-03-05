@@ -70,3 +70,37 @@ mysql> select start_date from employee_payroll_new where start_date between cast
 | 2020-05-21 |
 +------------+
 2 rows in set (0.07 sec)
+
+UC6-Add gender to employee payroll table and update rows to reflect correct employee gender
+
+ alter table employee_payroll_new add gender varchar(1) after name;
+Query OK, 0 rows affected (0.20 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee_payroll_new;
++----+---------+--------+---------+------------+
+| id | name    | gender | salary  | start_date |
++----+---------+--------+---------+------------+
+|  1 | Bill    | NULL   | 1000000 | 2010-10-30 |
+|  2 | Tersia  | NULL   | 2000000 | 2019-11-13 |
+|  3 | Charlie | NULL   |  300000 | 2020-05-21 |
++----+---------+--------+---------+------------+
+3 rows in set (0.00 sec)
+
+mysql> update employee_payroll_new set gender = 'M'  where name = 'Bill' or  name = 'Charlie';
+Query OK, 2 rows affected (0.09 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update employee_payroll_new set gender = 'F'  where name = 'Tersia';
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll_new;
++----+---------+--------+---------+------------+
+| id | name    | gender | salary  | start_date |
++----+---------+--------+---------+------------+
+|  1 | Bill    | M      | 1000000 | 2010-10-30 |
+|  2 | Tersia  | F      | 2000000 | 2019-11-13 |
+|  3 | Charlie | M      |  300000 | 2020-05-21 |
++----+---------+--------+---------+------------+
+3 rows in set (0.00 sec)
