@@ -51,3 +51,22 @@ UC4-Retrieve all employee payroll data from employee payroll table
 |  3 | Charlie |  300000 | 2020-05-21 |
 +----+---------+---------+------------+
 3 rows in set (0.04 sec)
+
+UC5-Retrieve salary data for particular employee as wll as employees particular data range
+
+select salary from employee_payroll_new where name = 'Bill';
++---------+
+| salary  |
++---------+
+| 1000000 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select start_date from employee_payroll_new where start_date between cast('2018-01-01' as date) and date(now());
++------------+
+| start_date |
++------------+
+| 2019-11-13 |
+| 2020-05-21 |
++------------+
+2 rows in set (0.07 sec)
