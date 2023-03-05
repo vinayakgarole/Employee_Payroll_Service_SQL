@@ -40,3 +40,14 @@ insert into employee_payroll_new(name,salary,start_date)values('Bill',1000000.00
 Query OK, 3 rows affected (0.17 sec)
 Records: 3  Duplicates: 0  Warnings: 0
 
+UC4-Retrieve all employee payroll data from employee payroll table
+
+ select * from employee_payroll_new;
++----+---------+---------+------------+
+| id | name    | salary  | start_date |
++----+---------+---------+------------+
+|  1 | Bill    | 1000000 | 2010-10-30 |
+|  2 | Tersia  | 2000000 | 2019-11-13 |
+|  3 | Charlie |  300000 | 2020-05-21 |
++----+---------+---------+------------+
+3 rows in set (0.04 sec)
