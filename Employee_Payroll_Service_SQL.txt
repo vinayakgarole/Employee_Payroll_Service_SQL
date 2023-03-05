@@ -33,3 +33,10 @@ desc employee_payroll_new;
 | start_date | date         | NO   |     | NULL    |                |
 +------------+--------------+------+-----+---------+----------------+
 4 rows in set (0.00 sec)
+
+UC3-Create employee payroll data in payroll service database as part of CURD operation
+
+insert into employee_payroll_new(name,salary,start_date)values('Bill',1000000.00,'2010-10-30'),('Tersia',2000000.00,'2019-11-13'),('Charlie',300000.00,'2020-05-21');
+Query OK, 3 rows affected (0.17 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
